@@ -49,7 +49,7 @@ setTimeout(
  * @param { number } [delay=1000]
  * @returns { (...args: Parameters<T>) => ReturnType<T> }
  */
-export const throttle = (fn, delay) => {
+export const throttle = (fn, delay = 1000) => {
   let throttled = false;
   let closure = null;
 
