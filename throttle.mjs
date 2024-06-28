@@ -49,11 +49,11 @@ setTimeout(
  * @param { number } [delay=1000]
  * @returns { (...args: Parameters<T>) => ReturnType<T> }
  */
-export function throttle(fn, delay) {
+export const throttle = (fn, delay) => {
   let throttled = false;
   let closure = null;
 
-  return (...args) => {
+  return function (...args) {
     if (!throttled) {
       throttled = true;
 
@@ -68,4 +68,4 @@ export function throttle(fn, delay) {
       return closure;
     }
   };
-}
+};
