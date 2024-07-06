@@ -5,7 +5,7 @@
  * @param {string} sep
  * @param {boolean} [fromEnd=true]
  */
-function stringSeqsep(str, gap, sep, fromEnd = true) {
+export function stringSeqsep(str, gap, sep, fromEnd = true) {
     const builded = [];
     const gaps = Math.ceil(str.length / gap);
     const offset = str.length % gap
