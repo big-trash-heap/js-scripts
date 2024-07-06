@@ -14,13 +14,13 @@ export function stringSeqsep(str, gap, sep, fromEnd = true) {
         builded.push(str.slice(0, offset))
 
         for (let i = 0; i < gaps - 1; ++i) {
-            const s = offset + i * gaps;
+            const s = offset + i * gap;
             builded.push(str.slice(s, s + gap))
         }
     }
     else {
         for (let i = 0; i < gaps; ++i) {
-            const s = i * gaps;
+            const s = i * gap;
             builded.push(str.slice(s, s + gap))
         }
     }
