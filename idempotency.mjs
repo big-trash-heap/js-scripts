@@ -1,7 +1,7 @@
 /**
  * @template { (...args: any) => any } T
  * @param { T } fn
- * @param { () => string } idempotent
+ * @param { (...args: Parameters<T>) => string } idempotent
  * @param { boolean } [rollbackOnError=true]
  * @returns { (...args: Parameters<T>) => ReturnType<T> }
  */
@@ -11,7 +11,7 @@ export const idempotency = (fn, idempotent, rollbackOnError = true) => {
   let closure = null;
 
   return function (...args) {
-    const newkey = idempotent.apply(this, []);
+    const newkey = idempotent.apply(this, args);
     if (key === newkey) {
       return closure;
     }
